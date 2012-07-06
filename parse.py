@@ -1,5 +1,6 @@
 import sys
 import re
+import csv
 
 def load_wc(fn):
     fp = open(fn)
@@ -18,14 +19,17 @@ re_parse = re.compile(
 )
 
 def main(args):
+    w = csv.writer(sys.stdout)
+    headers = ["medicine name", "strength", "dosage form"]
+
+    w.writerow(headers)
     for line in open(args[1]):
         line = line.strip()
         match = re_parse.search(line)
         if not match:
-            print line
-            raise Exception("Could not find dosage form")
+            raise Exception("Could parse line: " + line)
         else:
-            print match.group(1)
+            w.writerow(["", "", match.group(1)])
 
 
 if __name__ == "__main__":
