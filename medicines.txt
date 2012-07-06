@@ -22,7 +22,6 @@ Glibenclamide 5 mg Tab-cap
 Hydrocortisone 100 mg Vial
 Hyoscine Butylbromide 10 mg Tab-cap
 Ketoconazole 200 mg Tab-cap
-
 Mannitol 20% Solution
 Mebendazole 100 mg Tab-cap
 Metformin HCL 500 mg Tab-cap
@@ -46,9 +45,6 @@ Sulfamethoxazole + Trimethoprim 400 mg+80 mg Tab-cap
 Suxamethonium Cl 50 mg/ml Ampoule
 Tinidazole 500 mg Tab-cap
 Tramadol Hydrochloride 50 mg/ml Ampoule
-
-
-
 Warfarin Sodium 5 mg Tab-cap
 Albendazole 200 mg Tab-cap
 Amoxicillin 250 mg Tab-cap
