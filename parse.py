@@ -10,6 +10,7 @@ def load_wc(fn):
 re_parse = re.compile(
     r"""
         .*                   # Stuff
+        \s*
         (%(strength)s)       # Strength Extraction
         \s*
         (%(dosage_form)s)    # Dosage form
