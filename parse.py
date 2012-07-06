@@ -9,9 +9,9 @@ def load_wc(fn):
     
 re_parse = re.compile(
     r"""
-        .*                   # Stuff
+        (.*?)                 # Medicine
         \s*
-        (%(strength)s)       # Strength Extraction
+        (%(strength)s)\s?       # Strength Extraction
         \s*
         (%(dosage_form)s)    # Dosage form
 
@@ -21,6 +21,7 @@ re_parse = re.compile(
     }, 
     re.VERBOSE | re.IGNORECASE
 )
+print re_parse.pattern
 
 def main(args):
     w = csv.writer(sys.stdout)
@@ -33,7 +34,7 @@ def main(args):
         if not match:
             raise Exception("Could parse line: " + line)
         else:
-            w.writerow(["", match.group(1), match.group(2)])
+            w.writerow([x.strip() for x in match.groups()])
 
 
 if __name__ == "__main__":
