@@ -10,10 +10,13 @@ def load_wc(fn):
 re_parse = re.compile(
     r"""
         .*                   # Stuff
+        (%(strength)s)       # Strength Extraction
+        \s*
         (%(dosage_form)s)    # Dosage form
 
     """ % {
         "dosage_form" : load_wc("wc_dosageform.txt"),
+        "strength" : load_wc("wc_strength.txt"),
     }, 
     re.VERBOSE | re.IGNORECASE
 )
@@ -29,7 +32,7 @@ def main(args):
         if not match:
             raise Exception("Could parse line: " + line)
         else:
-            w.writerow(["", "", match.group(1)])
+            w.writerow(["", match.group(1), match.group(2)])
 
 
 if __name__ == "__main__":
