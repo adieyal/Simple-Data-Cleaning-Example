@@ -6,5 +6,5 @@ vial
 solution
 powder
 pessary
-drop
+opht\s*drop
 inhaler

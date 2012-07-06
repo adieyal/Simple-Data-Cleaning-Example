@@ -1,2 +1,5 @@
-[.\d]+\s*mg
-[.\d]+\s*mg/[.\d]+\s*ml
+[.\d]+\s*(?:mg|mu)
+[.\d]+\s*(?:mg|iu|pkt|mcg)/[.\d]*\s*(?:ml|l|dose)
+[.\d]+%\s*\+\s*[.\d]+%\s*
+\d+\s*g
+\d+\s*%\s*
