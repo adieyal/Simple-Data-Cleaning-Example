@@ -1,0 +1,10 @@
+tab-cap
+ampoule
+suspen
+ointment
+vial
+solution
+powder
+pessary
+drop
+inhaler
