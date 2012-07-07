@@ -34,6 +34,7 @@ def main(args):
         if not match:
             raise Exception("Could parse line: " + line)
         else:
+            [x.strip() for x in match.groups()]
             w.writerow([x.strip() for x in match.groups()])
 
 
