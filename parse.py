@@ -21,7 +21,15 @@ re_parse = re.compile(
     }, 
     re.VERBOSE | re.IGNORECASE
 )
-print re_parse.pattern
+
+def parse(line):
+    match = re_parse.search(line)
+    if not match:
+        raise Exception("Could parse line: " + line)
+    return match.groups()
+
+def standardise(tokens):
+    return [x.strip() for x in tokens]
 
 def main(args):
     w = csv.writer(sys.stdout)
@@ -30,12 +38,10 @@ def main(args):
     w.writerow(headers)
     for line in open(args[1]):
         line = line.strip()
-        match = re_parse.search(line)
-        if not match:
-            raise Exception("Could parse line: " + line)
-        else:
-            [x.strip() for x in match.groups()]
-            w.writerow([x.strip() for x in match.groups()])
+        tokens = parse(line)
+        clean_tokens = standardise(tokens)
+
+        w.writerow([x.strip() for x in clean_tokens])
 
 
 if __name__ == "__main__":
