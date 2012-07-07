@@ -1,6 +1,7 @@
 import sys
 import re
 import csv
+from token_map import token_map
 
 def load_wc(fn):
     fp = open(fn)
@@ -29,7 +30,9 @@ def parse(line):
     return match.groups()
 
 def standardise(tokens):
-    return [x.strip() for x in tokens]
+    stripped = [x.strip() for x in tokens]
+    std_tokens = [token_map.get(x, x) for x in stripped]
+    return std_tokens
 
 def main(args):
     w = csv.writer(sys.stdout)
@@ -41,7 +44,7 @@ def main(args):
         tokens = parse(line)
         clean_tokens = standardise(tokens)
 
-        w.writerow([x.strip() for x in clean_tokens])
+        w.writerow(clean_tokens)
 
 
 if __name__ == "__main__":
